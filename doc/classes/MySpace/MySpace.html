@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: MySpace::MySpace</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">MySpace::MySpace</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/myspace/myspace_rb.html">
+                lib/myspace/myspace.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="MySpace.html">MySpace</a> API object provides access to the <a
+href="MySpace.html">MySpace</a> REST API.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000050">appdata_to_hash</a>&nbsp;&nbsp;
+      <a href="#M000052">call_myspace_api</a>&nbsp;&nbsp;
+      <a href="#M000044">clear_global_appdata</a>&nbsp;&nbsp;
+      <a href="#M000047">clear_user_appdata</a>&nbsp;&nbsp;
+      <a href="#M000019">get_access_token</a>&nbsp;&nbsp;
+      <a href="#M000040">get_activities</a>&nbsp;&nbsp;
+      <a href="#M000023">get_album</a>&nbsp;&nbsp;
+      <a href="#M000022">get_album_info</a>&nbsp;&nbsp;
+      <a href="#M000021">get_albums</a>&nbsp;&nbsp;
+      <a href="#M000018">get_authorization_url</a>&nbsp;&nbsp;
+      <a href="#M000024">get_friends</a>&nbsp;&nbsp;
+      <a href="#M000041">get_friends_activities</a>&nbsp;&nbsp;
+      <a href="#M000026">get_friends_list</a>&nbsp;&nbsp;
+      <a href="#M000025">get_friendship</a>&nbsp;&nbsp;
+      <a href="#M000042">get_global_appdata</a>&nbsp;&nbsp;
+      <a href="#M000051">get_indicators</a>&nbsp;&nbsp;
+      <a href="#M000027">get_mood</a>&nbsp;&nbsp;
+      <a href="#M000032">get_moods</a>&nbsp;&nbsp;
+      <a href="#M000034">get_photo</a>&nbsp;&nbsp;
+      <a href="#M000033">get_photos</a>&nbsp;&nbsp;
+      <a href="#M000035">get_profile</a>&nbsp;&nbsp;
+      <a href="#M000017">get_request_token</a>&nbsp;&nbsp;
+      <a href="#M000036">get_status</a>&nbsp;&nbsp;
+      <a href="#M000045">get_user_appdata</a>&nbsp;&nbsp;
+      <a href="#M000048">get_user_friends_appdata</a>&nbsp;&nbsp;
+      <a href="#M000020">get_userid</a>&nbsp;&nbsp;
+      <a href="#M000039">get_video</a>&nbsp;&nbsp;
+      <a href="#M000038">get_videos</a>&nbsp;&nbsp;
+      <a href="#M000031">mood_id</a>&nbsp;&nbsp;
+      <a href="#M000030">mood_names</a>&nbsp;&nbsp;
+      <a href="#M000029">moods</a>&nbsp;&nbsp;
+      <a href="#M000016">new</a>&nbsp;&nbsp;
+      <a href="#M000049">remove_null_values</a>&nbsp;&nbsp;
+      <a href="#M000043">set_global_appdata</a>&nbsp;&nbsp;
+      <a href="#M000028">set_mood</a>&nbsp;&nbsp;
+      <a href="#M000037">set_status</a>&nbsp;&nbsp;
+      <a href="#M000046">set_user_appdata</a>&nbsp;&nbsp;
+      <a href="#M000053">validate_identifier</a>&nbsp;&nbsp;
+      <a href="#M000054">validate_response</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">APPLICATION_TYPE_ONSITE</td>
+          <td>=</td>
+          <td class="context-item-value">'onsite'      unless const_defined?('APPLICATION_TYPE_ONSITE')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">APPLICATION_TYPE_OFFSITE</td>
+          <td>=</td>
+          <td class="context-item-value">'offsite'     unless const_defined?('APPLICATION_TYPE_OFFSITE')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OAUTH_SITES</td>
+          <td>=</td>
+          <td class="context-item-value">{       :prod =&gt; 'http://api.myspace.com',       :stage =&gt; 'http://stage-api.myspace.com'</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OAUTH_REQUEST_TOKEN_URL</td>
+          <td>=</td>
+          <td class="context-item-value">'/request_token'  unless const_defined?('OAUTH_REQUEST_TOKEN_URL')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OAUTH_AUTHORIZATION_URL</td>
+          <td>=</td>
+          <td class="context-item-value">'/authorize'      unless const_defined?('OAUTH_AUTHORIZATION_URL')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OAUTH_ACCESS_TOKEN_URL</td>
+          <td>=</td>
+          <td class="context-item-value">'/access_token'   unless const_defined?('OAUTH_ACCESS_TOKEN_URL')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">TIMEOUT_SECS</td>
+          <td>=</td>
+          <td class="context-item-value">3 unless const_defined?('TIMEOUT_SECS')</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+tests regularly timeout at 2 seconds
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ID_REGEXP</td>
+          <td>=</td>
+          <td class="context-item-value">/[0-9]+/ unless const_defined?('ID_REGEXP')</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">access_token</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">consumer</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">http_logger</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">request_token</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(oauth_token_key, oauth_token_secret, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Save the application key/secret(s) and initialize <a
+href="OAuth.html">OAuth</a> code.
+</p>
+<p>
+If optional param +:application_type+ is passed, it must be one of
++MySpace::APPLICATION_TYPE_ONSITE+ or +MySpace::APPLICATION_TYPE_OFFSITE+.
+If the application is an onsite application, an access token is not
+required, since the user must separately give your application permission
+to access their data. If the application is an offsite application, it must
+get an access token from the user to access their data.
+</p>
+<p>
+If optional param +:request_token+ is passed +:request_token_secret+ must
+also be passed, and they will be used to create the default argument to +<a
+href="MySpace.html#M000019">MySpace#get_access_token</a>+ below. If
+optional param +:access_token+ is passed, +:access_token_secret+ must also
+be passed, and they will be used to create the access token for the REST
+API calls.
+</p>
+<p>
+If optional param +:site+ is passed, it must be either +:prod+ or +:stage+,
+and <a href="MySpace.html">MySpace</a> <a href="OAuth.html">OAuth</a> calls
+will be directed to either the production or stage API server accordingly.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 78</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">oauth_token_key</span>, <span class="ruby-identifier">oauth_token_secret</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-ivar">@http_logger</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:logger</span>]
+      <span class="ruby-identifier">site</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:site</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">:prod</span>
+      <span class="ruby-ivar">@consumer</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Consumer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">oauth_token_key</span>,
+                                        <span class="ruby-identifier">oauth_token_secret</span>,
+                                        <span class="ruby-identifier">:scheme</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:query_string</span>,
+                                        <span class="ruby-comment cmt"># :scheme =&gt; :header,</span>
+                                        <span class="ruby-identifier">:http_method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:get</span>,
+                                        <span class="ruby-identifier">:site</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OAUTH_SITES</span>[<span class="ruby-identifier">site</span>],
+                                        <span class="ruby-identifier">:request_token_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OAUTH_REQUEST_TOKEN_URL</span>,
+                                        <span class="ruby-identifier">:access_token_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OAUTH_ACCESS_TOKEN_URL</span>,
+                                        <span class="ruby-identifier">:authorize_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OAUTH_AUTHORIZATION_URL</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:application_type</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">APPLICATION_TYPE_ONSITE</span>
+        <span class="ruby-ivar">@access_token</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">AccessToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@consumer</span>, <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>)
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:access_token</span>]
+        <span class="ruby-ivar">@access_token</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">AccessToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@consumer</span>,
+                                                 <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:access_token</span>],
+                                                 <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:access_token_secret</span>])
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:request_token</span>]
+        <span class="ruby-ivar">@request_token</span> = <span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@consumer</span>,
+                                                   <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:request_token</span>],
+                                                   <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:request_token_secret</span>])
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Class methods</h3>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">appdata_to_hash</span><span class="method-args">(appdata = {}) {|if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 680</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">appdata_to_hash</span>(<span class="ruby-identifier">appdata</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">appdata</span> = <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-keyword kw">return</span> {} <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">appdata</span>[<span class="ruby-value str">'keyvaluecollection'</span>]
+      <span class="ruby-identifier">appdata</span>[<span class="ruby-value str">'keyvaluecollection'</span>].<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value str">'key'</span>].<span class="ruby-identifier">to_sym</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value str">'value'</span>])
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">remove_null_values</span><span class="method-args">(hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 670</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remove_null_values</span>(<span class="ruby-identifier">hash</span>)
+      <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">nulls</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>]
+          <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+          <span class="ruby-identifier">nulls</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">key</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">nulls</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">call_myspace_api</span><span class="method-args">(name, params = {}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 696</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">ep</span> = <span class="ruby-constant">EndPoint</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">url</span> = <span class="ruby-identifier">ep</span>.<span class="ruby-identifier">compute_path</span>(<span class="ruby-identifier">params</span>)
+      <span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:timeout</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">TIMEOUT_SECS</span>
+      <span class="ruby-identifier">body</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:body</span>)
+      <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:headers</span>)
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:v1_json</span>)
+      <span class="ruby-identifier">query_str</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'='</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>)
+
+      <span class="ruby-identifier">url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'?'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">query_str</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">query_str</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+      <span class="ruby-identifier">resp</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-ivar">@http_logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;sending: '#{url}'&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@http_logger</span>
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">timeout</span>, <span class="ruby-constant">TimeoutException</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-ivar">@access_token</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">ep</span>.<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">headers</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">TimeoutException</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">timeout</span> = <span class="ruby-identifier">timeout</span>
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">url</span> = <span class="ruby-identifier">url</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@http_logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;received: '#{resp.code}': '#{resp.body}'&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@http_logger</span>
+
+      <span class="ruby-identifier">validate_response</span>(<span class="ruby-identifier">resp</span>, <span class="ruby-identifier">url</span>)
+
+      <span class="ruby-identifier">content_type</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value str">'content-type'</span>]
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">content_type</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">content_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/json/</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">content_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/xml/</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown content type: #{content_type}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="#M000044" class="method-signature">
+          <span class="method-name">clear_global_appdata</span><span class="method-args">(*keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000044-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 626</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_global_appdata</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_global_delete</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">clear_user_appdata</span><span class="method-args">(user_id, *keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 650</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_user_appdata</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_user_delete</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">get_access_token</span><span class="method-args">(request_token = @request_token)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get an access token once the user has authorized us.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 118</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_access_token</span>(<span class="ruby-identifier">request_token</span> = <span class="ruby-ivar">@request_token</span>)
+      <span class="ruby-comment cmt"># response = @consumer.token_request(@consumer.http_method,</span>
+      <span class="ruby-comment cmt">#                                    (@consumer.access_token_url? ? @consumer.access_token_url : @consumer.access_token_path),</span>
+      <span class="ruby-comment cmt">#                                    request_token,</span>
+      <span class="ruby-comment cmt">#                                    {},</span>
+      <span class="ruby-comment cmt">#                                    headers)</span>
+
+      <span class="ruby-comment cmt"># @access_token = ::OAuth::AccessToken.new(@consumer, response[:oauth_token], response[:oauth_token_secret])</span>
+      <span class="ruby-ivar">@access_token</span> = <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">get_access_token</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">get_activities</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the activity stream of user <tt>user_id</tt>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 593</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_activities</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:activities</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">get_album</span><span class="method-args">(user_id, album_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the photo descriptions for the photos of album <tt>album_id</tt> for
+the user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;photos&quot;=&gt;
+    [{&quot;smallImageUri&quot;=&gt;
+       &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;,
+       &quot;photoUri&quot;=&gt;
+       &quot;http://api.myspace.com/v1/users/456073223/albums/40418/photos/100809&quot;,
+       &quot;id&quot;=&gt;100809,
+       &quot;uploadDate&quot;=&gt;&quot;2/27/2009 10:14:12 AM&quot;,
+       &quot;caption&quot;=&gt;&quot;&quot;,
+       &quot;lastUpdatedDate&quot;=&gt;&quot;&quot;,
+       &quot;imageUri&quot;=&gt;
+       &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+       &quot;user&quot;=&gt;
+       {&quot;name&quot;=&gt;&quot;Bob&quot;,
+         &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+         &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+         &quot;largeImage&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+         &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+         &quot;userId&quot;=&gt;456073223,
+         &quot;image&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}],
+    &quot;count&quot;=&gt;1,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 239</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_album</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">album_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">album_id</span> = <span class="ruby-identifier">album_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:album_id</span>, <span class="ruby-identifier">album_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:album</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:album_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">album_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">get_album_info</span><span class="method-args">(user_id, album_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the photo album description for user <tt>user_id</tt> and album
+<tt>album_id</tt>
+</p>
+<p>
+{&quot;photosUri&quot;=&gt;&quot;<a
+href="http://api.myspace.com/v1/users/456073223/albums/40418/photos">api.myspace.com/v1/users/456073223/albums/40418/photos</a>&quot;,
+</p>
+<pre>
+ &quot;photoCount&quot;=&gt;1,
+ &quot;location&quot;=&gt;&quot;&quot;,
+ &quot;title&quot;=&gt;&quot;My Photos&quot;,
+ &quot;id&quot;=&gt;40418,
+ &quot;defaultImage&quot;=&gt;
+   &quot;http://c1.ac-images.myspacecdn.com/images02/45/m_f820313641924f0f90004932c8bc310c.jpg&quot;,
+ &quot;privacy&quot;=&gt;&quot;Everyone&quot;,
+ &quot;user&quot;=&gt;
+   {&quot;name&quot;=&gt;&quot;Bob&quot;,
+   &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+   &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+   &quot;largeImage&quot;=&gt;
+   &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+   &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+   &quot;userId&quot;=&gt;456073223,
+   &quot;image&quot;=&gt;
+   &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+ &quot;albumUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/albums/40418&quot;}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 196</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_album_info</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">album_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">album_id</span> = <span class="ruby-identifier">album_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:album_id</span>, <span class="ruby-identifier">album_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:album_info</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:album_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">album_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">get_albums</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the photo album descriptions for the user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;albums&quot;=&gt;
+    [{&quot;photosUri&quot;=&gt;
+       &quot;http://api.myspace.com/v1/users/456073223/albums/40418/photos&quot;,
+       &quot;photoCount&quot;=&gt;1,
+       &quot;location&quot;=&gt;&quot;&quot;,
+       &quot;title&quot;=&gt;&quot;My Photos&quot;,
+       &quot;id&quot;=&gt;40418,
+       &quot;defaultImage&quot;=&gt;
+       &quot;http://c1.ac-images.myspacecdn.com/images02/45/m_f820313641924f0f90004932c8bc310c.jpg&quot;,
+       &quot;privacy&quot;=&gt;&quot;Everyone&quot;,
+       &quot;user&quot;=&gt;
+       {&quot;name&quot;=&gt;&quot;Bob&quot;,
+         &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+         &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+         &quot;largeImage&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+         &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+         &quot;userId&quot;=&gt;456073223,
+         &quot;image&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+       &quot;albumUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/albums/40418&quot;}],
+    &quot;count&quot;=&gt;1,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 169</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_albums</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:albums</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">get_authorization_url</span><span class="method-args">(request_token, callback_url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the url to which to redirect the user in order to authorize our access
+to their account. This url will redirect back to <tt>callback_url</tt> once
+the user authorizes us.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 113</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_authorization_url</span>(<span class="ruby-identifier">request_token</span>, <span class="ruby-identifier">callback_url</span>)
+      <span class="ruby-node">&quot;#{request_token.authorize_url}&amp;oauth_callback=#{CGI::escape(callback_url)}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">get_friends</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the list of friends for the user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;topFriends&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/friends?list=top&quot;,
+    &quot;Friends&quot;=&gt;
+    [{&quot;name&quot;=&gt;&quot;Tom&quot;,
+       &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/6221&quot;,
+       &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/tom&quot;,
+       &quot;largeImage&quot;=&gt;&quot;http://b2.ac-images.myspacecdn.com/00000/20/52/2502_l.jpg&quot;,
+       &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+       &quot;userId&quot;=&gt;6221,
+       &quot;image&quot;=&gt;&quot;http://b2.ac-images.myspacecdn.com/00000/20/52/2502_s.jpg&quot;}],
+    &quot;count&quot;=&gt;1,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 269</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_friends</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:friends</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">get_friends_activities</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the activity streams of the friends of user <tt>user_id</tt>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 600</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_friends_activities</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:friends_activities</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">get_friends_list</span><span class="method-args">(user_id, *friend_ids)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the list of friends for the user <tt>user_id</tt>, for the friends in
+<tt>friend_ids</tt>. Use this call if you only need information about a
+specific set of friends whose ids you already know.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 304</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_friends_list</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">friend_ids</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">friend_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">friend_id</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">friend_id</span> = <span class="ruby-identifier">friend_id</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:friend_ids</span>, <span class="ruby-identifier">friend_id</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:friends_list</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:friend_ids</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend_ids</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>), <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="#M000025" class="method-signature">
+          <span class="method-name">get_friendship</span><span class="method-args">(user_id, *friend_ids)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Tests whether user <tt>user_id</tt> is friends with one or more other
+users:
+</p>
+<pre>
+  {&quot;friendship&quot;=&gt;
+    [{&quot;areFriends&quot;=&gt;true, &quot;friendId&quot;=&gt;6221},
+     {&quot;areFriends&quot;=&gt;false, &quot;friendId&quot;=&gt;12341234},
+     {&quot;areFriends&quot;=&gt;true, &quot;friendId&quot;=&gt;456073223}],
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 291</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_friendship</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">friend_ids</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">friend_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">friend_id</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">friend_id</span> = <span class="ruby-identifier">friend_id</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:friend_ids</span>, <span class="ruby-identifier">friend_id</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:friendship</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:friend_ids</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend_ids</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>), <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">get_global_appdata</span><span class="method-args">(*keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the global application data. This can be anything the application
+wants. If you pass <tt>keys</tt>, only return data corresponding to the
+passed keys.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 609</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_global_appdata</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+      <span class="ruby-constant">MySpace</span>.<span class="ruby-identifier">appdata_to_hash</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_global_keys_get</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>), <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_global_get</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">get_indicators</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 690</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_indicators</span>(<span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:indicators</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="#M000027" class="method-signature">
+          <span class="method-name">get_mood</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the mood of user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;mood&quot;=&gt;&quot;tested&quot;,
+    &quot;moodImageUrl&quot;=&gt;
+    &quot;http://x.myspacecdn.com/images/blog/moods/iBrads/indescribable.gif&quot;,
+    &quot;moodLastUpdated&quot;=&gt;&quot;2/27/2009 10:19:25 AM&quot;,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000027-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 330</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_mood</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:mood_get</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="#M000032" class="method-signature">
+          <span class="method-name">get_moods</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the list of available <a href="MySpace.html#M000029">moods</a> for
+user <tt>user_id</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000032-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 370</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_moods</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">moods</span> = <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:moods</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+      <span class="ruby-identifier">moods</span>[<span class="ruby-value str">'moods'</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="#M000034" class="method-signature">
+          <span class="method-name">get_photo</span><span class="method-args">(user_id, photo_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the photo description for photo <tt>photo_id</tt> for user
+<tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;smallImageUri&quot;=&gt;
+    &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;,
+    &quot;photoUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/photos/100809&quot;,
+    &quot;id&quot;=&gt;100809,
+    &quot;uploadDate&quot;=&gt;&quot;2/27/2009 10:14:12 AM&quot;,
+    &quot;caption&quot;=&gt;&quot;&quot;,
+    &quot;lastUpdatedDate&quot;=&gt;&quot;&quot;,
+    &quot;imageUri&quot;=&gt;
+    &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 437</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_photo</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">photo_id</span> = <span class="ruby-identifier">photo_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:photo_id</span>, <span class="ruby-identifier">photo_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:photo</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:photo_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="#M000033" class="method-signature">
+          <span class="method-name">get_photos</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the photo descriptions for the photos that belong to user
+<tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;photos&quot;=&gt;
+    [{&quot;smallImageUri&quot;=&gt;
+       &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;,
+       &quot;photoUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/photos/100809&quot;,
+       &quot;id&quot;=&gt;100809,
+       &quot;uploadDate&quot;=&gt;&quot;2/27/2009 10:14:12 AM&quot;,
+       &quot;caption&quot;=&gt;&quot;&quot;,
+       &quot;lastUpdatedDate&quot;=&gt;&quot;&quot;,
+       &quot;imageUri&quot;=&gt;
+       &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+       &quot;user&quot;=&gt;
+       {&quot;name&quot;=&gt;&quot;Bob&quot;,
+         &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+         &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+         &quot;largeImage&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+         &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+         &quot;userId&quot;=&gt;456073223,
+         &quot;image&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}],
+    &quot;count&quot;=&gt;1,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 410</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_photos</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:photos</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="#M000035" class="method-signature">
+          <span class="method-name">get_profile</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the profile info for user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;region&quot;=&gt;&quot;California&quot;,
+    &quot;city&quot;=&gt;&quot;BEVERLY HILLS&quot;,
+    &quot;country&quot;=&gt;&quot;US&quot;,
+    &quot;postalcode&quot;=&gt;&quot;90210&quot;,
+    &quot;gender&quot;=&gt;&quot;Male&quot;,
+    &quot;type&quot;=&gt;&quot;full&quot;,
+    &quot;culture&quot;=&gt;&quot;en-US&quot;,
+    &quot;aboutme&quot;=&gt;&quot;&quot;,
+    &quot;hometown&quot;=&gt;&quot;&quot;,
+    &quot;basicprofile&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;lastUpdatedDate&quot;=&gt;&quot;2/27/2009 10:20:02 AM&quot;,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+    &quot;age&quot;=&gt;88,
+    &quot;maritalstatus&quot;=&gt;&quot;Single&quot;}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 468</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_profile</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:profile</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">get_request_token</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get an unauthorized request token from <a href="MySpace.html">MySpace</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 106</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_request_token</span>
+      <span class="ruby-ivar">@consumer</span>.<span class="ruby-identifier">get_request_token</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="#M000036" class="method-signature">
+          <span class="method-name">get_status</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the status of user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;mood&quot;=&gt;&quot;tested&quot;,
+    &quot;moodImageUrl&quot;=&gt;
+    &quot;http://x.myspacecdn.com/images/blog/moods/iBrads/indescribable.gif&quot;,
+    &quot;moodLastUpdated&quot;=&gt;&quot;2/27/2009 10:19:25 AM&quot;,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+    &quot;status&quot;=&gt;&quot;Testing&quot;}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000036-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 491</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_status</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:status_get</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="#M000045" class="method-signature">
+          <span class="method-name">get_user_appdata</span><span class="method-args">(user_id, *keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000045-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 630</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_user_appdata</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-constant">MySpace</span>.<span class="ruby-identifier">appdata_to_hash</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_user_keys_get</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>), <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_user_get</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">get_user_friends_appdata</span><span class="method-args">(user_id, *keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 656</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_user_friends_appdata</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_friends_keys_get</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>), <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_friends_get</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">friend</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">friend</span>[<span class="ruby-value str">'userid'</span>].<span class="ruby-identifier">to_s</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">MySpace</span>.<span class="ruby-identifier">appdata_to_hash</span>(<span class="ruby-identifier">friend</span>))
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">get_userid</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the user id of the currently logged in user.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 130</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_userid</span>()
+      <span class="ruby-identifier">user_info</span> = <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:user_info</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-identifier">user_info</span>[<span class="ruby-value str">'userId'</span>].<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="#M000039" class="method-signature">
+          <span class="method-name">get_video</span><span class="method-args">(user_id, video_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the video description for the video <tt>video_id</tt> of user
+<tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;totalrating&quot;=&gt;&quot;0&quot;,
+    &quot;title&quot;=&gt;&quot;110403na&quot;,
+    &quot;resourceuserid&quot;=&gt;&quot;456073223&quot;,
+    &quot;mediastatus&quot;=&gt;&quot;ProcessingSuccessful&quot;,
+    &quot;dateupdated&quot;=&gt;&quot;3/5/2009 11:24:23 AM&quot;,
+    &quot;country&quot;=&gt;&quot;US&quot;,
+    &quot;totalviews&quot;=&gt;&quot;0&quot;,
+    &quot;thumbnail&quot;=&gt;
+    &quot;http://d1.ac-videos.myspacecdn.com/videos02/8/thumb1_461592d881c14023bcb6a73275ebc614.jpg&quot;,
+    &quot;language&quot;=&gt;&quot;en&quot;,
+    &quot;id&quot;=&gt;53551799,
+    &quot;totalcomments&quot;=&gt;&quot;0&quot;,
+    &quot;runtime&quot;=&gt;&quot;219&quot;,
+    &quot;datecreated&quot;=&gt;&quot;3/5/2009 11:24:23 AM&quot;,
+    &quot;privacy&quot;=&gt;&quot;Public&quot;,
+    &quot;mediatype&quot;=&gt;&quot;4&quot;,
+    &quot;description&quot;=&gt;&quot;110403na&quot;,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+    &quot;totalvotes&quot;=&gt;&quot;0&quot;,
+    &quot;videoUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/videos/53551799&quot;}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 584</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_video</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">video_id</span> = <span class="ruby-identifier">video_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:video_id</span>, <span class="ruby-identifier">video_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:video</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:video_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="#M000038" class="method-signature">
+          <span class="method-name">get_videos</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the video descriptions for the videos of user <tt>user_id</tt>:
+</p>
+<pre>
+  {&quot;videos&quot;=&gt;
+    [{&quot;totalrating&quot;=&gt;&quot;0&quot;,
+       &quot;title&quot;=&gt;&quot;110403na&quot;,
+       &quot;resourceuserid&quot;=&gt;&quot;456073223&quot;,
+       &quot;mediastatus&quot;=&gt;&quot;ProcessingSuccessful&quot;,
+       &quot;dateupdated&quot;=&gt;&quot;3/5/2009 11:24:23 AM&quot;,
+       &quot;country&quot;=&gt;&quot;US&quot;,
+       &quot;totalviews&quot;=&gt;&quot;0&quot;,
+       &quot;thumbnail&quot;=&gt;
+       &quot;http://d4.ac-videos.myspacecdn.com/videos02/8/thumb1_1bd4f5fde59540c2981c35b27c15a0f3.jpg&quot;,
+       &quot;language&quot;=&gt;&quot;en&quot;,
+       &quot;id&quot;=&gt;53551799,
+       &quot;totalcomments&quot;=&gt;&quot;0&quot;,
+       &quot;runtime&quot;=&gt;&quot;219&quot;,
+       &quot;datecreated&quot;=&gt;&quot;3/5/2009 11:24:23 AM&quot;,
+       &quot;privacy&quot;=&gt;&quot;Public&quot;,
+       &quot;mediatype&quot;=&gt;&quot;4&quot;,
+       &quot;description&quot;=&gt;&quot;110403na&quot;,
+       &quot;user&quot;=&gt;
+       {&quot;name&quot;=&gt;&quot;Bob&quot;,
+         &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+         &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+         &quot;largeImage&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+         &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+         &quot;userId&quot;=&gt;456073223,
+         &quot;image&quot;=&gt;
+         &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;},
+       &quot;totalvotes&quot;=&gt;&quot;0&quot;,
+       &quot;videoUri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223/videos/53551799&quot;}],
+    &quot;count&quot;=&gt;1,
+    &quot;user&quot;=&gt;
+    {&quot;name&quot;=&gt;&quot;Bob&quot;,
+      &quot;uri&quot;=&gt;&quot;http://api.myspace.com/v1/users/456073223&quot;,
+      &quot;webUri&quot;=&gt;&quot;http://www.myspace.com/bobvontestacount&quot;,
+      &quot;largeImage&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/l_f820313641924f0f90004932c8bc310c.jpg&quot;,
+      &quot;userType&quot;=&gt;&quot;RegularUser&quot;,
+      &quot;userId&quot;=&gt;456073223,
+      &quot;image&quot;=&gt;
+      &quot;http://c1.ac-images.myspacecdn.com/images02/45/s_f820313641924f0f90004932c8bc310c.jpg&quot;}}
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 547</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_videos</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:videos</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:v1_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>))
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="#M000031" class="method-signature">
+          <span class="method-name">mood_id</span><span class="method-args">(user_id, name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Given a <tt>user_id</tt> and the name of a mood, returns the corresponding
+mood id
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000031-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 363</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mood_id</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">moods</span>(<span class="ruby-identifier">user_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mood</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">mood</span>[<span class="ruby-value str">'moodId'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mood</span>[<span class="ruby-value str">'moodName'</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="#M000030" class="method-signature">
+          <span class="method-name">mood_names</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the mood names available for user <tt>user_id</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 355</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mood_names</span>(<span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">moods</span>(<span class="ruby-identifier">user_id</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mood</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">mood</span>[<span class="ruby-value str">'moodName'</span>]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="#M000029" class="method-signature">
+          <span class="method-name">moods</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets and caches the list of available <a
+href="MySpace.html#M000029">moods</a> for user <tt>user_id</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000029-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 349</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">moods</span>(<span class="ruby-identifier">user_id</span>)
+      <span class="ruby-ivar">@moods</span> <span class="ruby-operator">||=</span> {}
+      <span class="ruby-ivar">@moods</span>[<span class="ruby-identifier">user_id</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">get_moods</span>(<span class="ruby-identifier">user_id</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">set_global_appdata</span><span class="method-args">(params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 619</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_global_appdata</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">deletes</span> = <span class="ruby-constant">MySpace</span>.<span class="ruby-identifier">remove_null_values</span>(<span class="ruby-identifier">params</span>)
+
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_global_put</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_global_delete</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">deletes</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">deletes</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="#M000028" class="method-signature">
+          <span class="method-name">set_mood</span><span class="method-args">(user_id, mood_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the mood of the user <tt>user_id</tt> to <tt><a
+href="MySpace.html#M000031">mood_id</a></tt>, which must be a number from
+this list:
+</p>
+<p>
+<a
+href="http://wiki.developer.myspace.com/index.php?title=Myspace_mood_data_names_codes_images">wiki.developer.myspace.com/index.php?title=Myspace_mood_data_names_codes_images</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000028-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 340</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_mood</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">mood_id</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">mood_id</span> = <span class="ruby-identifier">mood_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:mood_id</span>, <span class="ruby-identifier">mood_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:mood_put</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:mood</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">mood_id</span>})
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="#M000037" class="method-signature">
+          <span class="method-name">set_status</span><span class="method-args">(user_id, status)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the status of the user <tt>user_id</tt>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 498</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_status</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">status</span>)
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:status_put</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>})
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">set_user_appdata</span><span class="method-args">(user_id, params = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 642</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_user_appdata</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">user_id</span>)
+      <span class="ruby-identifier">deletes</span> = <span class="ruby-constant">MySpace</span>.<span class="ruby-identifier">remove_null_values</span>(<span class="ruby-identifier">params</span>)
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_user_put</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">call_myspace_api</span>(<span class="ruby-identifier">:appdata_user_delete</span>, <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">:keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">deletes</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">';'</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">deletes</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">validate_identifier</span><span class="method-args">(parameter, identifier)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 741</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_identifier</span>(<span class="ruby-identifier">parameter</span>, <span class="ruby-identifier">identifier</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">BadIdentifier</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">parameter</span>, <span class="ruby-identifier">identifier</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">identifier</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">identifier</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ID_REGEXP</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="#M000054" class="method-signature">
+          <span class="method-name">validate_response</span><span class="method-args">(response, url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/myspace/myspace.rb, line 745</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">url</span>)
+      <span class="ruby-identifier">code</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">code</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">code</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'200'</span>
+        <span class="ruby-keyword kw">return</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'201'</span>
+        <span class="ruby-keyword kw">return</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'401'</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">PermissionDenied</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">url</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">RestException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">url</span>) <span class="ruby-keyword kw">unless</span> [<span class="ruby-value str">'200'</span>, <span class="ruby-value str">'201'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">code</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

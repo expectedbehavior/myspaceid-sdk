@@ -1,0 +1,18 @@
+=== 0.1.11 / 2009-05-05
+
+* Fixed  incompatibility  with  Ruby  Enterprise Edition.   Thanks  to
+  Sascha Depold (sascha@dawanda.com) for finding and fixing.
+
+=== 0.1.10 / 2009-04-20
+
+* Support for onsite apps
+
+=== 0.1.9 / 2009-04-03
+
+* Added EndPoint class to make it easier to add new end points
+* Added new documentation
+* Fixed OAuth module conflicts
+
+=== 0.1.8 / 2009-03-24
+
+* Moving everything to RubyForge

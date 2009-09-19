@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Mar 27 12:11:12 -0700 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>MySpaceID SDK</h1>
+<ul>
+<li><a
+href="http://myspaceid-sdk.rubyforge.org">myspaceid-sdk.rubyforge.org</a>/
+
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+MySpaceID lets your users log on using their <a
+href="../classes/MySpace.html">MySpace</a> account info, after which their
+MySpaceID data becomes available; that is, your web servers will be able to
+communicate with our web servers and request user data.
+</p>
+<p>
+This SDK project contains examples of the base API code necessary to make
+signed requests against the MySpaceID REST API.
+</p>
+<p>
+To use the MySpaceID API, you first need to register on the <a
+href="../classes/MySpace.html">MySpace</a> Developer Site, create an app,
+and obtain a consumer key and secret. Information about these procedures,
+and about MySpaceID in general, is available at the MySpaceID Developer
+Wiki:
+</p>
+<p>
+<a
+href="http://wiki.developer.myspace.com/index.php?title=Category:MySpaceID">wiki.developer.myspace.com/index.php?title=Category:MySpaceID</a>
+</p>
+<p>
+The MySpaceID Ruby SDK enables you to work with <a
+href="../classes/MySpace.html">MySpace</a> data using the OpenStack
+(OpenID, <a href="../classes/OAuth.html">OAuth</a> etc) and the <a
+href="../classes/MySpace.html">MySpace</a> REST APIs via easy-to-use high
+level interfaces.
+</p>
+<p>
+The best way to implement your own application is to take an existing
+sample and customize it. Working Examples in this SDK:
+</p>
+<pre>
+    * OAuth - make signed requests
+    * OpenID + OAuth Hybrid - delegated login, and making signed requests
+</pre>
+<p>
+Documentation
+</p>
+<pre>
+    * Ruby SDK Documentation Summary: samples/rails/README
+    * Ruby SDK - API Documentation: http://myspaceid-ruby-sdk.googlecode.com/svn/trunk/doc/index.html
+</pre>
+<h2>LICENSE:</h2>
+<p>
+MIT/X Consortium
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
