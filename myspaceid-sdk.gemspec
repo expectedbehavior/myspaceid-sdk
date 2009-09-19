@@ -6,7 +6,7 @@
 #                     ].exclude(/db\/cstore\/(associations|nonces)|log\//)
 
 Gem::Specification.new do |s|
-   s.name = "expectedbehavior-myspaceid-sdk"
+   s.name = "myspaceid-sdk"
    s.version = "0.1.11.1"
 #   s.date = %q{2009-03-24}
 #   s.authors = ["Christopher B. Baker"]
