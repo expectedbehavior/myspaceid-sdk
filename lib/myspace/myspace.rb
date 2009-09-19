@@ -80,8 +80,8 @@ module MySpace
       site = params[:site] || :prod
       @consumer = ::OAuth::Consumer.new(oauth_token_key,
                                         oauth_token_secret,
-                                        :scheme => :query_string,
-                                        # :scheme => :header,
+                                       #:scheme => :query_string,
+                                        :scheme => :header,
                                         :http_method => :get,
                                         :site => OAUTH_SITES[site],
                                         :request_token_path => OAUTH_REQUEST_TOKEN_URL,
